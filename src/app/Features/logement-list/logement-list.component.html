@@ -1,0 +1,35 @@
+<!-- logement-list.component.html -->
+<div *ngFor="let niveau of niveaux" class="niveau-container">
+  <h2>Niveau {{ niveau }}</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Numéro de vanne</th>
+        <th>Numéro de compteur</th>
+        <th>Échéance de loyer</th>
+        <th>Paiement</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let logement of getLogementsFiltres()">
+            <td>{{ logement.type }}</td>
+            <td>{{ logement.numeroVanne }}</td>
+            <td>{{ logement.numeroCompteur }}</td>
+            <td>
+              <input
+                type="date"
+                [(ngModel)]="logement.echeanceLoyer"
+                (change)="mettreAJourEcheanceLoyer(logement.id, logement.echeanceLoyer)"
+              />
+            </td>
+            <td>
+              <button (click)="afficherDetailsLogement(logement)">
+                Voir détails
+              </button>
+            </td>
+          </tr>
+          
+    </tbody>
+  </table>
+</div>

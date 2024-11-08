@@ -1,0 +1,59 @@
+/* logement-list.component.css */
+
+.niveau-container {
+    margin-bottom: 24px;
+  }
+  
+  .niveau-container h2 {
+    background-color: #007bff;
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+  }
+  
+  table th,
+  table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .details-container {
+    margin-top: 8px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox-container input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.2);
+  }
+  
+  .checkbox-container .status-paid {
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  .checkbox-container .status-unpaid {
+    color: #dc3545;
+    font-weight: bold;
+  }
+  
