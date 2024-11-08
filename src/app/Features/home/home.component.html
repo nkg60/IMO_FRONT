@@ -1,0 +1,52 @@
+<div class="home-container">
+  <!-- En-tête avec image de fond -->
+  <div>
+    <div class="header-content">
+      <h1>SCI LA PROVIDENCE</h1>
+      <p>
+        Application de gestion locative pour le suivi des paiements d'eau et de
+        loyer de chaque logement d'un immeuble. Elle fournit une vue d'ensemble
+        de l'état des paiements, simplifiant la gestion des factures et loyers
+        pour chaque unité.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section de sélection de niveau et type de logement -->
+  <div class="search-section">
+    <select [(ngModel)]="selectedNiveau" aria-label="Sélectionnez le niveau">
+      <option value="" disabled selected>Niveau</option>
+      <option *ngFor="let niveau of niveaux" [value]="niveau">
+        Niveau {{ niveau }}
+      </option>
+    </select>
+
+    <select
+      [(ngModel)]="selectedLogementType"
+      aria-label="Sélectionnez le type de logement"
+    >
+      <option value="" disabled selected>Type de Logement</option>
+      <option *ngFor="let type of logementTypes" [value]="type">
+        {{ type }}
+      </option>
+    </select>
+
+    <!-- Bouton de recherche -->
+    <button (click)="search()" class="search-button">Recherche</button>
+  </div>
+
+  <!-- Liste des logements filtrés -->
+  <div *ngIf="logements.length > 0" class="logements-container">
+    <h2 class="logements-title">Logements disponibles</h2>
+    <ul class="logements-list">
+      <li *ngFor="let logement of logements" class="logement-item">
+        <span class="logement-info">
+          {{ logement.type | titlecase }} - {{ logement.numeroLogement }}
+        </span>
+        <button class="logement-button" (click)="goToLogementDetails(logement.id)">
+          Voir
+        </button>
+      </li>
+    </ul>
+  </div>  
+</div>
