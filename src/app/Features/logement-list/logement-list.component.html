@@ -1,5 +1,7 @@
 <!-- logement-list.component.html -->
 <div *ngFor="let niveau of niveaux" class="niveau-container">
+  <button class="font-weight: bold;" (click)="goToHome()">BACK
+  </button>
   <h2>Niveau {{ niveau }}</h2>
   <table>
     <thead>
@@ -8,28 +10,50 @@
         <th>Numéro de vanne</th>
         <th>Numéro de compteur</th>
         <th>Échéance de loyer</th>
-        <th>Paiement</th>
+        <th>Année Eau</th>
+        <th>Paiement Eau</th>
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let logement of getLogementsFiltres()">
-            <td>{{ logement.type }}</td>
-            <td>{{ logement.numeroVanne }}</td>
-            <td>{{ logement.numeroCompteur }}</td>
-            <td>
-              <input
-                type="date"
-                [(ngModel)]="logement.echeanceLoyer"
-                (change)="mettreAJourEcheanceLoyer(logement.id, logement.echeanceLoyer)"
-              />
-            </td>
-            <td>
-              <button (click)="afficherDetailsLogement(logement)">
-                Voir détails
-              </button>
-            </td>
-          </tr>
-          
+      <tr *ngFor="let logement of getLogementsFiltres()">
+        <td>{{ logement.type }} {{ logement.numeroLogement }}</td>
+        <td>
+          <input
+            type="text"
+            [(ngModel)]="logement.numeroVanne"
+            (change)="mettreAJourLogement(logement)"
+            placeholder="Numéro de vanne"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            [(ngModel)]="logement.numeroCompteur"
+            (change)="mettreAJourLogement(logement)"
+            placeholder="Numéro de compteur"
+          />
+        </td>
+        <td>
+          <input
+            type="date"
+            [(ngModel)]="logement.echeanceLoyer"
+            (change)="mettreAJourLogement(logement)"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="logement.Ans"
+            (change)="mettreAJourLogement(logement)"
+            placeholder="Année Eau"
+          />
+        </td>
+        <td>
+          <button (click)="afficherDetailsLogement(logement)">
+            Détails
+          </button>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

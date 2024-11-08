@@ -2,11 +2,13 @@
 export interface Logement {
     id: number;
     type: 'appartement' | 'studio' | 'chambre';
+    numeroLogement: number; 
     niveau: number;
     numeroVanne: string;
-    numeroCompteur: string; // Nouveau champ pour le numéro de compteur
-    echeanceLoyer: string; // Nouveau champ pour l'échéance de loyer
+    numeroCompteur: string; 
+    echeanceLoyer: string; 
     estAjout: boolean;
+    Ans: Date;
     paiements: Paiement[];
     afficherDetails?: boolean;
   }
@@ -15,6 +17,6 @@ export interface Logement {
   export interface Paiement {
     mois: string;
     estPaye: boolean;
-    montant: number; // Nouveau champ pour le montant payé
+    montant: number; 
   }
   

@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LogementListComponent } from './Features/logement-list/logement-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './Features/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LogementListComponent
+    LogementListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
